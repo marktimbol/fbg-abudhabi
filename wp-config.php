@@ -7,9 +7,9 @@ if ( file_exists( dirname( __FILE__ ) . '/gd-config.php' ) ) {
 	define( 'FS_CHMOD_FILE', ( 0604 & ~ umask() ) );
 }
  //Added by WP-Cache Manager
-define('WP_DEBUG', false);
-define('WP_DEBUG_DISPLAY', false);
-@ini_set('display_errors', 0);
+define('WP_DEBUG', true);
+define('WP_DEBUG_DISPLAY', true);
+@ini_set('display_errors', 1);
 
 
 define('WP_MEMORY_LIMIT', '512M');
@@ -43,13 +43,13 @@ define('ICL_REMOTE_WPML_CONFIG_DISABLED', false);
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'fbgabudhabi');
+define('DB_NAME', getenv('DB_DATABASE'));
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define('DB_USER', getenv('DB_USER'));
 
 /** MySQL database password */
-define('DB_PASSWORD', 'root');
+define('DB_PASSWORD', getenv('DB_PASSWORD'));
 
 /** MySQL hostname */
 define('DB_HOST', "localhost");
