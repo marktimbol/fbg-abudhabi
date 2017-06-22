@@ -1,0 +1,465 @@
+html.wppas-model-open {
+    overflow: hidden !important;
+}
+.wppas_pop_bg {
+	position:fixed;
+	z-index: 99999 !important;
+	top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: .5;
+    background-color: #000000;	
+}
+
+.float_right {
+	float:right;
+}
+.float_left {
+	float:left;
+}
+.wppas_dashboard .wppas_status {
+	font-weight: 600;
+    border-radius: 4px;
+    padding: 5px 15px;
+    color: #FFF;
+    font-size: 12px;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+.wppas_dashboard .wppas_status.green {
+	background-color:#ADD97A;
+}
+.wppas_dashboard .wppas_status.red {
+	background-color:#ea6559;
+}
+.wppas_dashboard .wppas_box_header h3.green {
+	color:#ADD97A;
+}
+.wppas_dashboard .wppas_box_header h3.red {
+	color:#ea6559;
+}
+
+
+.wppas_dashboard .button-secondary, .button-secondary.green {
+	background-color: #94C758;
+	color: #FFF;
+	box-shadow: none;
+	border-color: #AFDC7B;
+}
+.wppas_dashboard .button-secondary:hover, .button-secondary.green:hover {
+	background-color: #AFDC7B;
+	border-color: #94C758;
+}
+
+
+
+.wppas_dashboard {
+	
+}
+	
+	/**
+	 * Header
+	 */
+	.wppas_dashboard .wppas_header {
+		padding: 15px;
+		clear: both;
+		margin-bottom: 20px !important;
+		background-color: #abdb6d;
+		background-image: url("../../images/headerbg.png");
+	}
+		.wppas_dashboard .wppas_header .wppas_logo {
+			
+		}
+			.wppas_dashboard .wppas_header .wppas_logo h3 {
+				margin:0;
+				font-size:23px;
+				color:#FFF;
+			}
+			.wppas_dashboard .wppas_header .wppas_logo .version {
+				color:#FFF;	
+			}
+			
+			
+	
+	
+	
+	/**
+	 * Boxes
+	 */
+	.wppas_box.col2 {
+		width:49%;
+		margin-right:2%;
+		min-height: 260px;
+    	background-color: #FFF;
+	}
+	.wppas_box_container .wppas_box_group .wppas_box.col2:nth-last-child(2) {
+		margin-right:0;	
+	}
+	.wppas_box_group {
+		margin-bottom:20px;
+	}
+	
+	@media screen and (max-width: 782px){
+		.wppas_box.col2 {
+			width:100%;
+			margin-right:0;
+			margin-bottom:20px;
+		}
+	}
+	
+	
+	
+	
+	/**
+	 * Actions 
+	 */
+	.wppas_dashboard .wppas_box_header {
+		background-color: #FFF;
+		padding: 15px;
+		clear: both;
+		position:relative;
+	}
+		.wppas_dashboard .wppas_box_header h3 {
+			font-weight: normal;
+			color: #7B7B7B;
+			margin:0;
+		}
+	.wppas_dashboard .wppas_actions {
+		list-style: none;
+		margin: 0px;
+		padding: 15px 10px;
+		background: #fff;
+		border-top: 1px solid #E5E5E5;
+	}
+		.wppas_dashboard .wppas_actions .wppas_action {
+			list-style: none;
+			margin: 0px;
+			padding: 0px;
+			position: relative;
+			display: inline-block;
+			margin-bottom: 10px;
+			margin-right: 1%;
+			width: 23%;
+			min-width:100px;
+			height: 160px;
+			z-index: 5;
+			background: #333;
+		}
+			.wppas_dashboard .wppas_actions > :last-child {
+				margin-right: 0;
+			}
+			.wppas_dashboard .wppas_actions .wppas_action .wppas_action_meta {
+				position: absolute;
+				width: 100%;
+				height: 160px;
+				top: 0px;
+				left: 0px;
+				overflow: hidden;
+			}
+			.wppas_dashboard .wppas_actions .wppas_action_addnew {
+				border: 1px dashed #ddd;
+				background: transparent;
+				/*background-color: #abdb6d;*/
+				background-image: url("../../images/headerbg.png");
+				box-sizing: border-box;
+				overflow: hidden;
+			}
+			.wppas_dashboard .wppas_actions .wppas_action_addnew:hover {
+				border: 1px solid #4B4E4F;
+			}
+			.wppas_dashboard .wppas_actions .wppas_action .wppas_icon_wrapper {
+				position: absolute;
+				top: 0px;
+				width: 100%;
+				height: 100%;
+				display: block;
+				text-align: center;
+				font-size: 35px;
+				background-size: cover;
+				background-position: center center;
+			}
+			.wppas_dashboard .wppas_actions .wppas_action .wppas_icon_wrapper.add_new_advertiser {
+				background-image: url(../../images/admin/advertisers.png);
+			}
+			.wppas_dashboard .wppas_actions .wppas_action .wppas_icon_wrapper.add_new_campaign {
+				background-image: url(../../images/admin/campaigns.jpg);
+			}
+			.wppas_dashboard .wppas_actions .wppas_action .wppas_icon_wrapper.add_new_banner {
+				background-image: url(../../images/admin/banners.png);
+			}
+			.wppas_dashboard .wppas_actions .wppas_action .wppas_icon_wrapper.add_new_adzone {
+				background-image: url(../../images/admin/adzones.png);
+			}
+			
+			.wppas_action_icon {
+				display: block;
+				position: absolute;
+				left: 0px,top:0px;
+				width: 100%;
+				height: 100%;
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: 40px 40px;
+				margin-top: -10px;
+			}
+			.wppas_action_icon.add_new {
+				background-image: url(../../images/admin/add_new_alpha.png);
+			}
+			.wppas_dashboard .wppas_actions .wppas_action .wppas_icon_wrapper:hover .wppas_action_icon.add_new {
+				background-image: url(../../images/admin/add_new.png);
+			}
+			.wppas_dashboard .wppas_actions.kickstart:hover .wppas_action_icon.add_new {
+				background-image: url(../../images/admin/add_new.png) !important;
+			}
+			
+						
+			.wppas_dashboard .wppas_actions .wppas_action .wppas_action_info {
+				vertical-align: middle;
+				position: absolute;
+				bottom: 0px;
+				color: #FFF;
+				padding: 5px 10px;
+				width: 100%;
+				line-height: 20px;
+				background: #EFEFEF;
+				box-sizing: border-box;
+			}
+				.wppas_dashboard .wppas_actions .wppas_action a {
+					cursor: pointer;
+				}
+				.wppas_dashboard .wppas_actions .wppas_action .wppas_action_info .wppas_action_title, .wppas_dashboard .wppas_actions .wppas_action .wppas_action_info a {
+					color:#555;
+					text-decoration:none;
+				}
+				.wppas_dashboard .wppas_actions.kickstart .wppas_action {
+					width:100%; 
+					height:200px;
+				}
+				.wppas_dashboard .wppas_actions .wppas_action .wppas_action_info:hover {
+					background-color: #abdb6d !important;
+				}
+				.wppas_dashboard .wppas_actions.kickstart .wppas_action .wppas_action_info:hover {
+					background-color: #4B4E4F !important;
+				}
+				
+				.wppas_dashboard .wppas_actions .wppas_action:hover .wppas_action_info .wppas_action_title, .wppas_dashboard .wppas_actions .wppas_action:hover .wppas_action_info a {
+					color:#FFF;
+				}
+				.wppas_dashboard .wppas_actions .wppas_action:hover .wppas_action_info {
+					background: #4B4E4F;
+				}
+				.wppas_dashboard .wppas_actions .wppas_action .wppas_action_title_wrapper a {
+					display:block;
+				}
+				
+			
+			.validation_links li {
+				padding:0 30px; 
+			}
+			.validation_links li:hover {
+				padding-left:50px;
+				background-color: lightyellow;
+			}
+				.validation_links li a {
+					text-decoration:none;
+					color:#ABABAB;
+				}
+					.validation_links li a .main {
+						color:#000;
+						font-weight:bold;
+					}
+						
+						
+						
+		
+		
+		
+		
+		
+		/**
+		 * Menu Toggle
+		 */
+		.wppas_menu_toggle {
+			margin:0;
+			padding:0;
+			width: 100%;
+    		height: 58px;
+			background-color:#EFEFEF;
+			border: solid 1px #EFEFEF;
+    		border-bottom: none;
+		}
+			.wppas_menu_toggle li {
+				float:left;
+				list-style:none;
+				background-color: #EFEFEF;
+				color:#949494;
+				padding: 20px;
+				margin: 0;
+				cursor: pointer;
+			}
+			.wppas_menu_toggle li:hover {
+				background-color:#F9F9F9;
+			}
+			.wppas_menu_toggle li.selected {
+				background-color:#FFF;
+				color: #595959;
+			}
+		
+		.nfer {
+			border:solid 1px #EFEFEF;
+			border-top:none;
+			padding:20px;
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/* ------------------------- .wppas-popup + .wppas-flyin --------------------------- */
+.wppas-popup {
+	display:none;
+    position: fixed;
+    top: 20px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+	z-index: 100002;
+}
+.wppas-item .wppas-popup-bg, .wppas-flyin-container .wppas-flyin-bg {
+	display:none;
+	position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+	opacity:.2;
+    z-index: 100001;
+    background-color: #000000;
+}
+.wppas-popup .wppas-item-meta { 
+	background-color: #FFF;
+	overflow-y: scroll;
+	height: 60%;
+	width:73%;
+	border-radius: 3px;
+	margin: 34px auto 0;
+}
+	.wppas-item .wppas-item-meta-header, .wppas-flyin-container .wppas-flyin-header {
+		background-color:#add97a;
+		background-image: url("../../images/headerbg.png");
+		color:#FFF;
+		padding:10px;
+	}
+		.wppas-item .wppas-item-meta-header wppas-popup-title, .wppas-flyin .wppas-flyin-title {
+			font-weight:bold;	
+		}
+	.wppas-item .wppas-item-meta .wppas-item-meta-inside, .wppas-flyin .wppas-flyin-meta-inside {
+		padding: 20px;
+	}
+		/*.wppas-item .wppas-item-meta .wppas-item-meta-inside .wppas-item-meta-cont,*/ .wppas-flyin-container .wppas-flyin-body {
+			position:relative;
+			max-height: 200px;
+    		overflow-y: auto;
+    		overflow-x: hidden;
+			margin-bottom:20px;
+		}
+
+
+.wppas-popup .wppas-item-meta a.wppas-popup-save {
+	
+}
+.wppas-popup .wppas-item-meta a.wppas-popup-close, .wppas-flyin-container a.wppas-flyin-close, .wppas-flyin-container a.wppas-btn-expand { 
+	color: #FFF;
+	display:block;
+	float:right;
+}
+.wppas-flyin-container a.wppas-btn-expand {
+	margin:0 10px;
+}
+.wppas-popup .wppas-item-meta .wppas-opts-image {
+	max-width:200px;
+	height:auto;
+}
+.wppas-popup .wppas-item-meta .wppas-opts-upload-remove {
+	display:block;
+}
+
+
+
+
+/* ------------------------- #wppas-flyin --------------------------- */
+#wppas_flyin_loader {
+	position: absolute;
+    top: 50px;
+}
+.wppas-flyin {
+	overflow:hidden;
+	border-radius: 5px 5px 0 0;	
+}
+.wppas-flyin-container .wppas-flyin{
+	display:none;
+	padding: 10px;
+	background:#FFF;
+    width:  45%;
+    height: 70%;
+    position: fixed;
+	 z-index: 100000;
+    bottom:0;
+    right:20px;
+    margin: auto;
+	-webkit-box-shadow: -1px 1px 20px -4px rgba(0,0,0,0.3);
+	-moz-box-shadow: -1px 1px 20px -4px rgba(0,0,0,0.3);
+	box-shadow: -1px 1px 20px -4px rgba(0,0,0,0.3);
+}
+	.wppas-flyin-inner {
+		/*padding:2%;*/
+		padding:10px;	
+	}
+	.wppas-flyin-container .wppas-flyin-header {
+		position: absolute;
+		left:0;
+		top:0;
+		padding:0;
+		width: 100%;
+		font-size: 18px;	
+	}
+	.wppas-flyin-container .wppas-flyin-body {
+		/*width:96%;
+		height: 80%;
+		position: absolute;*/
+		/*top: 22%;*/
+		top:50px;
+		overflow: auto;
+	}
+	.wppas-flyin-container .wppas-flyin-footer {
+		width:100%;
+		position: absolute;
+		left: 0;
+		bottom:0; 
+		z-index: 5;
+		background:#FFF;
+		-webkit-box-shadow: -1px 32px 27px 21px rgba(0,0,0,0.75);
+		-moz-box-shadow: -1px 32px 27px 21px rgba(0,0,0,0.75);
+		box-shadow: -1px 32px 27px 21px rgba(0,0,0,0.75);
+	}
+		.wppas-flyin-container .wppas-flyin-footer .wppas-flyin-cancel-btn {
+			margin-right:10px;
+		}
+.wppas-flyin-container .wppas-flyin-bg {
+	z-index:99999 !important;
+}
+
+.wppas-flyin .chosen-select {
+	width:80%;
+}

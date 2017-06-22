@@ -1,0 +1,11 @@
+/*
+Theme Name: FBG Abu Dhabi
+Description: Child theme for Avada theme
+Author: BelPro Digital
+Author URI: https://belpro.co
+Template: Avada
+Version: 1.0.0
+Text Domain:  Avada
+*/
+
+@import 'dist/css/app.css';
