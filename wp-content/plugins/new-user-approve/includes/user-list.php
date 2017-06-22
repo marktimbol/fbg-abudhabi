@@ -203,45 +203,41 @@ class pw_new_user_approve_user_list {
             )
         ?>
         <?
-        if (true){
-        $filtered_status = $this->selected_status();
-        $filterMember = $this->selected_memberview();
-        $filtered_payment = $this->selected_payment();
+        if (true) {
+	        $filtered_status = $this->selected_status();
+	        $filterMember = $this->selected_memberview();
+	        $filtered_payment = $this->selected_payment();
+        	$filtered_badge = $this->selected_badge();
 
-        $filtered_badge = $this->selected_badge();
-
-        ?><label class="screen-reader-text" for="lstmemberoverview">Member Overview</label>
-        <select id="<?=$idOverview?>" name="<?=$idOverview?>" style="float: none; margin: 0 0 0 15px;">
-        <?
-            foreach($arrYesNo as $key => $value){
-                ?><option value="<?=$key?>" <?if($filterMember == $key){?>selected="selected"<?}?>><?=$value?></option><?
-            }
         ?>
-        </select>
-        <style>
-			#pw-status-query-submit {
-				float: right;
-				margin: 2px 0 0 5px;
-			}
-		</style>
-         <?php //echo apply_filters( 'new_user_approve_filter_button', $filter_button ); 
-        ?>
-        <select id="<?=$idPaid?>" name="<?=$idPaid?>"  style="clear:both; float:none;">
-            <option value="">Payment Status</option>
-            <option value="1" <?if($filtered_payment == "1"){?>selected="selected"<?}?>>Paid</option>
-             <option value="2" <?if($filtered_payment == "2"){?>selected="selected"<?}?>>Unpaid</option>
-        </select>
+        	<label class="screen-reader-text" for="lstmemberoverview">Member Overview</label>
+	        <select id="<?=$idOverview?>" name="<?=$idOverview?>" style="float: none; margin: 0 0 0 15px;">
+		        <?php
+		            foreach($arrYesNo as $key => $value){
+		                ?><option value="<?=$key?>" <?if($filterMember == $key){?>selected="selected"<?}?>><?=$value?></option><?
+		            }
+		        ?>
+        	</select>
+	        <style>
+				#pw-status-query-submit {
+					float: right;
+					margin: 2px 0 0 5px;
+				}
+			</style>
+	         <?php //echo apply_filters( 'new_user_approve_filter_button', $filter_button ); ?>
+	        <select id="<?=$idPaid?>" name="<?=$idPaid?>"  style="clear:both; float:none;">
+	            <option value="">Payment Status</option>
+	            <option value="1" <?if($filtered_payment == "1"){?>selected="selected"<?}?>>Paid</option>
+	             <option value="2" <?if($filtered_payment == "2"){?>selected="selected"<?}?>>Unpaid</option>
+	        </select>
 
-         <select id="<?=$idBadge?>" name="<?=$idBadge?>"  style="clear:both; float:none;">
-            <option value="">Badge Name</option>
-            <option value="1" <?if($filtered_badge == "1"){?>selected="selected"<?}?>>Featured</option>
-             <option value="2" <?if($filtered_badge == "2"){?>selected="selected"<?}?>>Sponsored</option>
-        </select>
-
-
-        <?php echo apply_filters( 'new_user_approve_filter_button', $filter_button ); 
-        }?>
-	<?php
+	        <select id="<?=$idBadge?>" name="<?=$idBadge?>"  style="clear:both; float:none;">
+	            <option value="">Badge Name</option>
+	            <option value="1" <?if($filtered_badge == "1"){?>selected="selected"<?}?>>Featured</option>
+	             <option value="2" <?if($filtered_badge == "2"){?>selected="selected"<?}?>>Sponsored</option>
+	        </select>
+        	<?php echo apply_filters( 'new_user_approve_filter_button', $filter_button );  ?>
+    <?php }
 	}
 
 	/**
