@@ -1,10 +1,3 @@
-<?php
-// Do not allow directly accessing this file.
-if ( ! defined( 'ABSPATH' ) ) {
-	exit( 'Direct script access denied.' );
-}
-?>
-
 <!DOCTYPE html>
 <?php global $woocommerce; ?>
 <html class="<?php echo ( Avada()->settings->get( 'smooth_scrolling' ) ) ? 'no-overflow-y' : ''; ?>" <?php language_attributes(); ?>>
