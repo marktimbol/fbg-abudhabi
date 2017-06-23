@@ -1,5 +1,4 @@
 <?php
-
 // Do not allow directly accessing this file.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'Direct script access denied.' );
@@ -10,6 +9,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php get_template_part( 'templates/blog', 'layout' ); ?>
 	</div>
 	<?php do_action( 'avada_after_content' ); ?>
-<?php get_footer();
-
-/* Omit closing PHP tag to avoid "Headers already sent" issues. */
+<?php get_footer(); ?>
