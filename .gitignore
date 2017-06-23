@@ -1,3 +1,7 @@
-.htaccess
-/wp-content/uploads
-/wp-content/themes/fbgabudhabi/node_modules
+/.htaccess
+wp-config.php
+/wp-content/uploads/
+/wp-content/themes/Old/
+/wp-content/themes/fbgabudhabi/resources/
+/wp-content/themes/fbgabudhabi/images/
+/wp-content/themes/fbgabudhabi/node_modules/
