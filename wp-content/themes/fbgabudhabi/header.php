@@ -6,7 +6,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<script src='https://www.google.com/recaptcha/api.js'></script>
 	    <?php 
-	    	// echo "<link rel='stylesheet' href='".content_url()."/themes/Avada/assets/css/theme-my-login.css'>";
 			$is_ipad = (bool) ( isset( $_SERVER['HTTP_USER_AGENT'] ) && false !== strpos( $_SERVER['HTTP_USER_AGENT'],'iPad' ) );
 			$viewport = '';
 
@@ -29,7 +28,9 @@
 			$c_page_id = get_the_ID();
 			// $c_page_id = Avada()->get_page_id();
 
-			$pages_with_css = array('13454', '13750', '13503', '13764', '14918', '13726', '14559', '13760', '13747', '13743', /*'13612',*/ '13745', /*'13739',*/ '13741', '17360' , '16130', '16127', '14692', '16127', '17352');
+			<?php
+			/*
+			$pages_with_css = array('13454', '13750', '13503', '13764', '14918', '13726', '14559', '13760', '13747', '13743', '13745', '13741', '17360' , '16130', '16127', '14692', '16127', '17352');
 
 			if ( in_array($c_page_id, $pages_with_css) )
 			{
@@ -49,6 +50,7 @@ EOF;
 				<![endif]-->
 				";
 			} ?>
+			*/ ?>
 
 			<script type="text/javascript">
 				var doc = document.documentElement;
