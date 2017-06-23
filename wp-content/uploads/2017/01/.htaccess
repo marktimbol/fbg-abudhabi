@@ -1,0 +1,364 @@
+ErrorDocument 404 /?page=error&code=404
+
+
+Options +FollowSymlinks
+RewriteEngine On
+rewriteRule ^flash.html flash.html [L]
+
+rewriteRule ^error(.*) /?page=error&code=$1 [L]
+rewriteRule ^ERROR([0-9].*).html /?page=error&code=$1 [L]
+
+rewriteRule ^3rdparty/(.*) 3rdparty/$1 [L]
+rewriteRule ^generator/(.*) generator/$1 [L]
+rewriteRule ^app/(.*) app/$1 [L]
+rewriteRule ^feeds/(.*) feeds/$1 [L]
+rewriteRule ^facebook/(.*) facebook/$1 [L]
+
+
+#raspuns payu
+rewriteRule ^respone-ipn-ac$ app/auto_ipn.php [L]
+
+rewriteRule ^factura.html index.php?page=factura&folder_radacina=factura [l]
+rewriteRule ^print.html index.php?page=printer&folder_radacina=factura [l]
+
+
+#raspuns sms
+rewriteRule ^response-sms$ app/response-sms.php [L]
+
+
+
+#anunturi vanzator
+rewriteRule ^creeaza-cont.html$ index.php?page=creeaza-cont&folder_radacina=cont [L]
+rewriteRule ^creeaza-cont-dealer.html$ index.php?page=creeaza-cont-dealer&folder_radacina=cont [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-active-autoturisme.html$ index.php?page=cont-vanzator-administrare-anunturi-active&folder_radacina=anunturi_vanzator&categorie=autoturisme [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-active-motociclete.html$ index.php?page=cont-vanzator-administrare-anunturi-active&folder_radacina=anunturi_vanzator&categorie=motociclete [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-active-autoutilitare.html$ index.php?page=cont-vanzator-administrare-anunturi-active&folder_radacina=anunturi_vanzator&categorie=autoutilitare [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-active-camioane.html$ index.php?page=cont-vanzator-administrare-anunturi-active&folder_radacina=anunturi_vanzator&categorie=utilitare-si-camioane [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-active-utilaje-constructii.html$ index.php?page=cont-vanzator-administrare-anunturi-active&folder_radacina=anunturi_vanzator&categorie=utilaje-constructii [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-active-utilaje-agricole.html$ index.php?page=cont-vanzator-administrare-anunturi-active&folder_radacina=anunturi_vanzator&categorie=utilaje-agricole [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-active-remorci.html$ index.php?page=cont-vanzator-administrare-anunturi-active&folder_radacina=anunturi_vanzator&categorie=remorci [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-active-piese.html$ index.php?page=cont-vanzator-administrare-anunturi-active&folder_radacina=anunturi_vanzator&categorie=piese [L]
+
+
+rewriteRule ^cont-vanzator-administrare-anunturi-inactive-autoturisme.html$ index.php?page=cont-vanzator-administrare-anunturi-inactive&folder_radacina=anunturi_vanzator&categorie=autoturisme [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-inactive-motociclete.html$ index.php?page=cont-vanzator-administrare-anunturi-inactive&folder_radacina=anunturi_vanzator&categorie=motociclete [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-inactive-autoutilitare.html$ index.php?page=cont-vanzator-administrare-anunturi-inactive&folder_radacina=anunturi_vanzator&categorie=autoutilitare [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-inactive-camioane.html$ index.php?page=cont-vanzator-administrare-anunturi-inactive&folder_radacina=anunturi_vanzator&categorie=utilitare-si-camioane [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-inactive-utilaje-constructii.html$ index.php?page=cont-vanzator-administrare-anunturi-inactive&folder_radacina=anunturi_vanzator&categorie=utilaje-constructii [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-inactive-utilaje-agricole.html$ index.php?page=cont-vanzator-administrare-anunturi-inactive&folder_radacina=anunturi_vanzator&categorie=utilaje-agricole [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-inactive-remorci.html$ index.php?page=cont-vanzator-administrare-anunturi-inactive&folder_radacina=anunturi_vanzator&categorie=remorci [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-inactive-piese.html$ index.php?page=cont-vanzator-administrare-anunturi-inactive&folder_radacina=anunturi_vanzator&categorie=piese [L]
+
+
+rewriteRule ^cont-vanzator-administrare-anunturi-respinse-autoturisme.html$ index.php?page=cont-vanzator-administrare-anunturi-respinse&folder_radacina=anunturi_vanzator&categorie=autoturisme [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-respinse-motociclete.html$ index.php?page=cont-vanzator-administrare-anunturi-respinse&folder_radacina=anunturi_vanzator&categorie=motociclete [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-respinse-autoutilitare.html$ index.php?page=cont-vanzator-administrare-anunturi-respinse&folder_radacina=anunturi_vanzator&categorie=autoutilitare [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-respinse-camioane.html$ index.php?page=cont-vanzator-administrare-anunturi-respinse&folder_radacina=anunturi_vanzator&categorie=utilitare-si-camioane [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-respinse-utilaje-constructii.html$ index.php?page=cont-vanzator-administrare-anunturi-respinse&folder_radacina=anunturi_vanzator&categorie=utilaje-constructii [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-respinse-utilaje-agricole.html$ index.php?page=cont-vanzator-administrare-anunturi-respinse&folder_radacina=anunturi_vanzator&categorie=utilaje-agricole [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-respinse-remorci.html$ index.php?page=cont-vanzator-administrare-anunturi-respinse&folder_radacina=anunturi_vanzator&categorie=remorci [L]
+rewriteRule ^cont-vanzator-administrare-anunturi-respinse-piese.html$ index.php?page=cont-vanzator-administrare-anunturi-respinse&folder_radacina=anunturi_vanzator&categorie=piese [L]
+
+
+#anunturi dealer
+rewriteRule ^creeaza-cont.html$ index.php?page=creeaza-cont&folder_radacina=cont [L]
+rewriteRule ^cont-dealer-administrare-anunturi-active-autoturisme.html$ index.php?page=cont-dealer-administrare-anunturi-active&folder_radacina=anunturi_dealer&categorie=autoturisme [L]
+rewriteRule ^cont-dealer-administrare-anunturi-active-motociclete.html$ index.php?page=cont-dealer-administrare-anunturi-active&folder_radacina=anunturi_dealer&categorie=motociclete [L]
+rewriteRule ^cont-dealer-administrare-anunturi-active-autoutilitare.html$ index.php?page=cont-dealer-administrare-anunturi-active&folder_radacina=anunturi_dealer&categorie=autoutilitare [L]
+rewriteRule ^cont-dealer-administrare-anunturi-active-camioane.html$ index.php?page=cont-dealer-administrare-anunturi-active&folder_radacina=anunturi_dealer&categorie=utilitare-si-camioane  [L]
+rewriteRule ^cont-dealer-administrare-anunturi-active-utilaje-constructii.html$ index.php?page=cont-dealer-administrare-anunturi-active&folder_radacina=anunturi_dealer&categorie=utilaje-constructii [L]
+rewriteRule ^cont-dealer-administrare-anunturi-active-utilaje-agricole.html$ index.php?page=cont-dealer-administrare-anunturi-active&folder_radacina=anunturi_dealer&categorie=utilaje-agricole [L]
+rewriteRule ^cont-dealer-administrare-anunturi-active-remorci.html$ index.php?page=cont-dealer-administrare-anunturi-active&folder_radacina=anunturi_dealer&categorie=remorci [L]
+rewriteRule ^cont-dealer-administrare-anunturi-active-piese.html$ index.php?page=cont-dealer-administrare-anunturi-active&folder_radacina=anunturi_dealer&categorie=piese [L]
+
+
+rewriteRule ^cont-dealer-administrare-anunturi-inactive-autoturisme.html$ index.php?page=cont-dealer-administrare-anunturi-inactive&folder_radacina=anunturi_dealer&categorie=autoturisme [L]
+rewriteRule ^cont-dealer-administrare-anunturi-inactive-motociclete.html$ index.php?page=cont-dealer-administrare-anunturi-inactive&folder_radacina=anunturi_dealer&categorie=motociclete [L]
+rewriteRule ^cont-dealer-administrare-anunturi-inactive-autoutilitare.html$ index.php?page=cont-dealer-administrare-anunturi-inactive&folder_radacina=anunturi_dealer&categorie=autoutilitare [L]
+rewriteRule ^cont-dealer-administrare-anunturi-inactive-camioane.html$ index.php?page=cont-dealer-administrare-anunturi-inactive&folder_radacina=anunturi_dealer&categorie=utilitare-si-camioane [L]
+rewriteRule ^cont-dealer-administrare-anunturi-inactive-utilaje-constructii.html$ index.php?page=cont-dealer-administrare-anunturi-inactive&folder_radacina=anunturi_dealer&categorie=utilaje-constructii [L]
+rewriteRule ^cont-dealer-administrare-anunturi-inactive-utilaje-agricole.html$ index.php?page=cont-dealer-administrare-anunturi-inactive&folder_radacina=anunturi_dealer&categorie=utilaje-agricole [L]
+rewriteRule ^cont-dealer-administrare-anunturi-inactive-remorci.html$ index.php?page=cont-dealer-administrare-anunturi-inactive&folder_radacina=anunturi_dealer&categorie=remorci [L]
+rewriteRule ^cont-dealer-administrare-anunturi-inactive-piese.html$ index.php?page=cont-dealer-administrare-anunturi-inactive&folder_radacina=anunturi_dealer&categorie=piese [L]
+
+
+rewriteRule ^cont-informatii-facturi.html$ index.php?page=cont-informatii-facturi&folder_radacina=cont [L]
+rewriteRule ^cont-vanzator-informatii-personale.html$ index.php?page=cont-vanzator-informatii-personale&folder_radacina=cont [L]
+rewriteRule ^cont-vanzator-schimbare-parola.html$ index.php?page=cont-vanzator-schimbare-parola&folder_radacina=cont [L]
+
+rewriteRule ^cont-dealer-administrare-anunturi-active.html$ index.php?page=cont-dealer-administrare-anunturi-active&folder_radacina=cont [L]
+rewriteRule ^cont-dealer-administrare-anunturi-inactive.html$ index.php?page=cont-dealer-administrare-anunturi-inactive&folder_radacina=cont [L]
+rewriteRule ^cont-dealer-administrare-anunturi-respinse.html$ index.php?page=cont-dealer-administrare-anunturi-respinse&folder_radacina=cont [L]
+rewriteRule ^cont-dealer-informatii-personale.html$ index.php?page=cont-dealer-informatii-personale&folder_radacina=cont [L]
+rewriteRule ^cont-dealer-schimbare-parola.html$ index.php?page=cont-dealer-schimbare-parola&folder_radacina=cont [L]
+rewriteRule ^cont-dealer-preturi.html$ index.php?page=cont-dealer-preturi&folder_radacina=cont [L]
+rewriteRule ^cont-dealer-metoda-plata.html$ index.php?page=cont-dealer-metoda-plata&folder_radacina=cont [L]
+rewriteRule ^cont-dealer-admin-pagina.html$ index.php?page=cont-dealer-admin-pagina&folder_radacina=cont [L]
+rewriteRule ^zona-dealeri-auto.html$ index.php?page=zona-dealeri-auto&folder_radacina=cont [L]
+rewriteRule ^dealer/(.*)--([0-9]*)--([0-9]*).html$ index.php?page=pagina-dealeri-auto&folder_radacina=cont&nume=$1&id=$2&id_categorie=$3 [L]
+rewriteRule ^dealer/(.*)--([0-9]*).html$ index.php?page=pagina-dealeri-auto&folder_radacina=cont&nume=$1&id=$2 [L]
+
+rewriteRule ^recuperare-parola.html$ index.php?page=recuperare_parola [L]
+rewriteRule ^compara.html$ index.php?page=compara [L]
+rewriteRule ^faq.html$ index.php?page=ajutor [L]
+#rewriteRule ^acte-necesare-inmatriculrii.html$ index.php?page=acte-necesare-inmatriculrii [L]
+rewriteRule ^cele-mai-noi-anunuri.html$ index.php?page=cele-mai-noi-anunuri [L]
+rewriteRule ^dealeri/(.*)--([0-9].*).html$ index.php?page=lista_dealeri_judet&folder_radacina=cont&judet=$1&id=$2 [L]
+
+rewriteRule ^anunturi/autoturisme/(.*)--([0-9].*).html$ index.php?page=detalii_autoturisme&folder_radacina=autoturisme&nume=$1&id=$2 [L]
+rewriteRule ^anunturi/motociclete/(.*)--([0-9].*).html$ index.php?page=detalii_motociclete&folder_radacina=motociclete&nume=$1&id=$2 [L]
+rewriteRule ^anunturi/piese/(.*)--([0-9].*).html$ index.php?page=detalii_piese&folder_radacina=piese&nume=$1&id=$2 [L]
+rewriteRule ^anunturi/camioane/(.*)--([0-9].*).html$ index.php?page=detalii_utilitare-si-camioane&folder_radacina=utilitare-si-camioane&nume=$1&id=$2 [L]
+rewriteRule ^anunturi/utilaje-constructii/(.*)--([0-9].*).html$ index.php?page=detalii_utilaje-constructii&folder_radacina=utilaje-constructii&nume=$1&id=$2 [L]
+rewriteRule ^anunturi/utilaje-agricole/(.*)--([0-9].*).html$ index.php?page=detalii_utilaje-agricole&folder_radacina=utilaje-agricole&nume=$1&id=$2 [L]
+rewriteRule ^anunturi/autoutilitare/(.*)--([0-9].*).html$ index.php?page=detalii_autoutilitare&folder_radacina=autoutilitare&nume=$1&id=$2 [L]
+rewriteRule ^anunturi/remorci/(.*)--([0-9].*).html$ index.php?page=detalii_remorci&folder_radacina=remorci&nume=$1&id=$2 [L]
+
+
+rewriteRule ^autoturisme.html$ index.php?page=autoturisme&folder_radacina=autoturisme [L]
+rewriteRule ^motociclete.html$ index.php?page=motociclete&folder_radacina=motociclete [L]
+rewriteRule ^piese.html$ index.php?page=piese&folder_radacina=piese [L]
+rewriteRule ^camioane.html$ index.php?page=utilitare-si-camioane&folder_radacina=utilitare-si-camioane [L]
+rewriteRule ^utilaje-constructii.html$ index.php?page=utilaje-constructii&folder_radacina=utilaje-constructii [L]
+rewriteRule ^utilaje-agricole.html$ index.php?page=utilaje-agricole&folder_radacina=utilaje-agricole [L]
+rewriteRule ^autoutilitare.html$ index.php?page=autoutilitare&folder_radacina=autoutilitare [L]
+rewriteRule ^remorci.html$ index.php?page=remorci&folder_radacina=remorci [L]
+
+
+#modul autoturisme
+#simple
+rewriteRule ^anunturi/autoturisme/adauga-anunt/p1.html$ index.php?page=adauga_anunt_p1&folder_radacina=autoturisme [L]
+rewriteRule ^anunturi/autoturisme/adauga-anunt/edit/p1.html$ index.php?page=adauga_anunt_p1&folder_radacina=autoturisme&edit=1 [L]
+
+
+#multiple
+rewriteRule ^anunturi/autoturisme/adauga-anunt-m/p1.html$ index.php?page=adauga_anunt_m_p1&folder_radacina=autoturisme_multiplu [L]
+rewriteRule ^anunturi/autoturisme/adauga-anunt-m/edit/p1.html$ index.php?page=adauga_anunt_m_p1&folder_radacina=autoturisme_multiplu&edit=1 [L]
+rewriteRule ^anunturi/autoturisme/adauga-anunt-m/cos-cumparaturi.html$ index.php?page=cos_cumparaturi&folder_radacina=autoturisme_multiplu [L]
+rewriteRule ^anunturi/autoturisme/adauga-anunt-m/edit/cos-cumparaturi.html$ index.php?page=cos_cumparaturi&folder_radacina=autoturisme_multiplu&edit=1 [L]
+
+
+
+rewriteRule ^anunturi/autoturisme/actualizeaza_preturi.html$ index.php?page=actualizeaza_preturi&folder_radacina=autoturisme [L]
+rewriteRule ^anunturi/autoturisme/anunturi_salvate.html$ index.php?page=anunturi_salvate&folder_radacina=autoturisme [L]
+rewriteRule ^autoturisme/filtrare/([0-9].*).html$ index.php?page=autoturisme&folder_radacina=autoturisme&filtrare=$1 [L]
+
+
+#modul motociclete
+#simple
+rewriteRule ^anunturi/motociclete/adauga-anunt/p1.html$ index.php?page=adauga_anunt_p1&folder_radacina=motociclete [L]
+rewriteRule ^anunturi/motociclete/adauga-anunt/edit/p1.html$ index.php?page=adauga_anunt_p1&folder_radacina=motociclete&edit=1 [L]
+
+
+#multiple
+rewriteRule ^anunturi/motociclete/adauga-anunt-m/p1.html$ index.php?page=adauga_anunt_m_p1&folder_radacina=motociclete_multiplu [L]
+rewriteRule ^anunturi/motociclete/adauga-anunt-m/cos-cumparaturi.html$ index.php?page=cos_cumparaturi&folder_radacina=motociclete_multiplu [L]
+rewriteRule ^anunturi/motociclete/adauga-anunt-m/edit/p1.html$ index.php?page=adauga_anunt_m_p1&folder_radacina=motociclete_multiplu&edit=1 [L]
+rewriteRule ^anunturi/motociclete/adauga-anunt-m/edit/cos-cumparaturi.html$ index.php?page=cos_cumparaturi&folder_radacina=motociclete_multiplu&edit=1 [L]
+
+
+
+rewriteRule ^anunturi/motociclete/actualizeaza_preturi.html$ index.php?page=actualizeaza_preturi&folder_radacina=motociclete [L]
+rewriteRule ^anunturi/motociclete/anunturi_salvate.html$ index.php?page=anunturi_salvate&folder_radacina=motociclete [L]
+rewriteRule ^motociclete/filtrare/([0-9].*).html$ index.php?page=motociclete&folder_radacina=motociclete&filtrare=$1 [L]
+
+
+
+
+#modul autoutilitare
+rewriteRule ^anunturi/autoutilitare/adauga-anunt/p1.html$ index.php?page=adauga_anunt_p1&folder_radacina=autoutilitare [L]
+rewriteRule ^anunturi/autoutilitare/adauga-anunt/edit/p1.html$ index.php?page=adauga_anunt_p1&folder_radacina=autoutilitare&edit=1 [L]
+
+rewriteRule ^anunturi/autoutilitare/adauga-anunt-m/p1.html$ index.php?page=adauga_anunt_m_p1&folder_radacina=autoutilitare [L]
+rewriteRule ^anunturi/autoutilitare/adauga-anunt-m/edit/p1.html$ index.php?page=adauga_anunt_m_p1&folder_radacina=autoutilitare&edit=1 [L]
+
+rewriteRule ^anunturi/autoutilitare/adauga-anunt-m/cos-cumparaturi.html$ index.php?page=cos_cumparaturi&folder_radacina=autoutilitare [L]
+rewriteRule ^anunturi/autoutilitare/adauga-anunt-m/edit/cos-cumparaturi.html$ index.php?page=cos_cumparaturi&folder_radacina=autoutilitare&edit=1 [L]
+
+rewriteRule ^autoutilitare/filtrare/([0-9].*).html$ index.php?page=autoutilitare&folder_radacina=autoutilitare&filtrare=$1 [L]
+rewriteRule ^anunturi/autoutilitare/anunturi_salvate.html$ index.php?page=anunturi_salvate&folder_radacina=autoutilitare [L]
+
+
+#modul camioane
+rewriteRule ^anunturi/camioane/adauga-anunt/p1.html$ index.php?page=adauga_anunt_p1&folder_radacina=utilitare-si-camioane [L]
+rewriteRule ^anunturi/camioane/adauga-anunt/edit/p1.html$ index.php?page=adauga_anunt_p1&folder_radacina=utilitare-si-camioane&edit=1 [L]
+
+rewriteRule ^anunturi/camioane/anunturi_salvate.html$ index.php?page=anunturi_salvate&folder_radacina=utilitare-si-camioane [L]
+
+rewriteRule ^anunturi/camioane/adauga-anunt-m/p1.html$ index.php?page=adauga_anunt_m_p1&folder_radacina=utilitare-si-camioane_multiplu [L]
+rewriteRule ^anunturi/camioane/adauga-anunt-m/edit/p1.html$ index.php?page=adauga_anunt_m_p1&folder_radacina=utilitare-si-camioane_multiplu&edit=1 [L]
+rewriteRule ^anunturi/camioane/adauga-anunt-m/cos-cumparaturi.html$ index.php?page=cos_cumparaturi&folder_radacina=utilitare-si-camioane_multiplu [L]
+rewriteRule ^anunturi/camioane/adauga-anunt-m/edit/cos-cumparaturi.html$ index.php?page=cos_cumparaturi&folder_radacina=utilitare-si-camioane_multiplu&edit=1 [L]
+
+rewriteRule ^anunturi/utilitare-si-camioane/actualizeaza_preturi.html$ index.php?page=actualizeaza_preturi&folder_radacina=utilitare-si-camioane [L]
+rewriteRule ^anunturi/utilitare-si-camioane/anunturi_salvate.html$ index.php?page=anunturi_salvate&folder_radacina=utilitare-si-camioane [L]
+rewriteRule ^camioane/filtrare/([0-9].*).html$ index.php?page=utilitare-si-camioane&folder_radacina=utilitare-si-camioane&filtrare=$1 [L]
+
+
+#modul utilaje-constructii
+rewriteRule ^anunturi/constructii/adauga-anunt/p1.html$ index.php?page=adauga_anunt_p1&folder_radacina=utilaje-constructii [L]
+rewriteRule ^anunturi/constructii/adauga-anunt/edit/p1.html$ index.php?page=adauga_anunt_p1&folder_radacina=utilaje-constructii&edit=1 [L]
+
+
+#multiple
+rewriteRule ^anunturi/constructii/adauga-anunt-m/p1.html$ index.php?page=adauga_anunt_m_p1&folder_radacina=utilaje-constructii_multiplu [L]
+rewriteRule ^anunturi/constructii/adauga-anunt-m/edit/p1.html$ index.php?page=adauga_anunt_m_p1&folder_radacina=utilaje-constructii_multiplu&edit=1 [L]
+rewriteRule ^anunturi/constructii/adauga-anunt-m/cos-cumparaturi.html$ index.php?page=cos_cumparaturi&folder_radacina=utilaje-constructii_multiplu [L]
+rewriteRule ^anunturi/constructii/adauga-anunt-m/edit/cos-cumparaturi.html$ index.php?page=cos_cumparaturi&folder_radacina=utilaje-constructii_multiplu&edit=1 [L]
+
+
+
+rewriteRule ^anunturi/utilaje-constructii/actualizeaza_preturi.html$ index.php?page=actualizeaza_preturi&folder_radacina=utilaje-constructii [L]
+rewriteRule ^anunturi/utilaje-constructii/anunturi_salvate.html$ index.php?page=anunturi_salvate&folder_radacina=utilaje-constructii [L]
+rewriteRule ^utilaje-constructii/filtrare/([0-9].*).html$ index.php?page=utilaje-constructii&folder_radacina=utilaje-constructii&filtrare=$1 [L]
+
+
+
+#modul Utilaje Agricole
+rewriteRule ^anunturi/utilaje-agricole/adauga-anunt/p1.html$ index.php?page=adauga_anunt_p1&folder_radacina=utilaje-agricole [L]
+rewriteRule ^anunturi/utilaje-agricole/adauga-anunt/edit/p1.html$ index.php?page=adauga_anunt_p1&folder_radacina=utilaje-agricole&edit=1 [L]
+
+
+#multiple
+rewriteRule ^anunturi/utilaje-agricole/adauga-anunt-m/p1.html$ index.php?page=adauga_anunt_m_p1&folder_radacina=utilaje-agricole_multiplu [L]
+rewriteRule ^anunturi/utilaje-agricole/adauga-anunt-m/edit/p1.html$ index.php?page=adauga_anunt_m_p1&folder_radacina=utilaje-agricole_multiplu&edit=1 [L]
+rewriteRule ^anunturi/utilaje-agricole/adauga-anunt-m/cos-cumparaturi.html$ index.php?page=cos_cumparaturi&folder_radacina=utilaje-agricole_multiplu [L]
+rewriteRule ^anunturi/utilaje-agricole/adauga-anunt-m/edit/cos-cumparaturi.html$ index.php?page=cos_cumparaturi&folder_radacina=utilaje-agricole_multiplu&edit=1 [L]
+
+
+rewriteRule ^anunturi/utilaje-agricole/actualizeaza_preturi.html$ index.php?page=actualizeaza_preturi&folder_radacina=utilaje-agricole [L]
+rewriteRule ^anunturi/utilaje-agricole/anunturi_salvate.html$ index.php?page=anunturi_salvate&folder_radacina=utilaje-agricole [L]
+rewriteRule ^utilaje-agricole/filtrare/([0-9].*).html$ index.php?page=utilaje-agricole&folder_radacina=utilaje-agricole&filtrare=$1 [L]
+
+
+
+#modul piese
+rewriteRule ^anunturi/piese/adauga-anunt/p1.html$ index.php?page=adauga_anunt_p1&folder_radacina=piese [L]
+rewriteRule ^anunturi/piese/adauga-anunt/edit/p1.html$ index.php?page=adauga_anunt_p1&folder_radacina=piese&edit=1 [L]
+
+#multiple
+rewriteRule ^anunturi/piese/adauga-anunt-m/p1.html$ index.php?page=adauga_anunt_m_p1&folder_radacina=piese_multiplu [L]
+rewriteRule ^anunturi/piese/adauga-anunt-m/edit/p1.html$ index.php?page=adauga_anunt_m_p1&folder_radacina=piese_multiplu&edit=1 [L]
+rewriteRule ^anunturi/piese/adauga-anunt-m/cos-cumparaturi.html$ index.php?page=cos_cumparaturi&folder_radacina=piese_multiplu [L]
+rewriteRule ^anunturi/piese/adauga-anunt-m/edit/cos-cumparaturi.html$ index.php?page=cos_cumparaturi&folder_radacina=piese_multiplu&edit=1 [L]
+
+
+rewriteRule ^anunturi/piese/actualizeaza_preturi.html$ index.php?page=actualizeaza_preturi&folder_radacina=piese [L]
+rewriteRule ^anunturi/piese/anunturi_salvate.html$ index.php?page=anunturi_salvate&folder_radacina=piese [L]
+rewriteRule ^piese/filtrare/([0-9].*).html$ index.php?page=piese&folder_radacina=piese&filtrare=$1 [L]
+
+
+
+#modul remorci
+rewriteRule ^anunturi/remorci/adauga-anunt/p1.html$ index.php?page=adauga_anunt_p1&folder_radacina=remorci [L]
+rewriteRule ^anunturi/remorci/adauga-anunt/edit/p1.html$ index.php?page=adauga_anunt_p1&folder_radacina=remorci&edit=1 [L]
+
+rewriteRule ^anunturi/remorci/adauga-anunt-m/p1.html$ index.php?page=adauga_anunt_m_p1&folder_radacina=remorci [L]
+rewriteRule ^anunturi/remorci/adauga-anunt-m/edit/p1.html$ index.php?page=adauga_anunt_m_p1&folder_radacina=remorci&edit=1 [L]
+rewriteRule ^anunturi/remorci/adauga-anunt-m/cos-cumparaturi.html$ index.php?page=cos_cumparaturi&folder_radacina=remorci [L]
+rewriteRule ^anunturi/remorci/adauga-anunt-m/edit/cos-cumparaturi.html$ index.php?page=cos_cumparaturi&folder_radacina=remorci&edit=1 [L]
+
+rewriteRule ^remorci/filtrare/([0-9].*).html$ index.php?page=remorci&folder_radacina=remorci&filtrare=$1 [L]
+rewriteRule ^anunturi/remorci/anunturi_salvate.html$ index.php?page=anunturi_salvate&folder_radacina=remorci [L]
+
+
+#modul Stiri
+rewriteRule ^stiri.html$ index.php?page=stiri&folder_radacina=stiri [L]
+rewriteRule ^stiri/(.*)--([0-9]+).html$ index.php?page=stiri_detaliu&folder_radacina=stiri&id=$2 [L]
+
+rewriteRule ^stiri.html$ index.php?page=stiri&folder_radacina=stiri [L]
+rewriteRule ^stiri/(.*)--([0-9]+).html$ index.php?page=stiri_detaliu&folder_radacina=stiri&id=$2 [L]
+
+
+#Contact
+rewriteRule ^contact.html$ index.php?page=contact&folder_radacina=contact [L]
+
+#Contact
+rewriteRule ^autentificare.html$ index.php?page=autentificare&folder_radacina=cont [L]
+
+#pdf
+rewriteRule ^printer.html index.php?page=printer [L]
+rewriteRule ^pdf/autoturisme/([0-9].*).html$ index.php?page=pdf-autoturisme&categorie=autoturisme&id=$1&pdf=1 [L]
+rewriteRule ^pdf/motociclete/([0-9].*).html$ index.php?page=pdf-motociclete&categorie=motociclete&id=$1&pdf=1 [L]
+rewriteRule ^pdf/autoutilitare/([0-9].*).html$ index.php?page=pdf-autoutilitare&categorie=autoutilitare&id=$1&pdf=1 [L]
+rewriteRule ^pdf/camioane/([0-9].*).html$ index.php?page=pdf-utilitare-si-camioane&categorie=utilitare-si-camioane&id=$1&pdf=1 [L]
+rewriteRule ^pdf/utilaje-constructii/([0-9].*).html$ index.php?page=pdf-utilaje-constructii&categorie=utilaje-constructii&id=$1&pdf=1 [L]
+rewriteRule ^pdf/utilaje-agricole/([0-9].*).html$ index.php?page=pdf-utilaje-agricole&categorie=utilaje-agricole&id=$1&pdf=1 [L]
+rewriteRule ^pdf/remorci/([0-9].*).html$ index.php?page=pdf-remorci&categorie=remorci&id=$1&pdf=1 [L]
+rewriteRule ^pdf/piese/([0-9].*).html$ index.php?page=pdf-piese&categorie=piese&id=$1&pdf=1 [L]
+
+rewriteRule ^(.*)/(.*)/(.*)\.html$ /?page=$1.$2.$3 [L]
+rewriteRule ^(.*)/(.*)\.html index.php?page=$1.$2 [L]
+rewriteRule ^(.*)\.html index.php?page=$1 [L]
+
+#rewriteRule ^fblogin.php$ /?page=fblogin [L]
+
+RewriteCond %{HTTP_HOST} ^autocentrum.ro$
+RewriteRule ^/?$ "http\:\/\/www\.autocentrum\.ro" [R=301,L]
+
+
+#SeoInc.ro Optimizare
+Header unset ETag
+FileETag None
+<ifmodule mod_expires.c>
+<filesmatch "\.(jpg|gif|png|css|js)$">
+ExpiresActive on
+ExpiresDefault "access plus 1 year"
+</filesmatch>
+</ifmodule>
+
+<IfModule mod_expires.c>
+        ExpiresActive on
+        ExpiresByType image/gif "access plus 1 day"
+        ExpiresByType image/jpeg "access plus 1 day"
+        ExpiresByType image/ico "access plus 1 day"
+        ExpiresByType image/png "access plus 1 day"
+        ExpiresByType text/css "access plus 1 day"
+        ExpiresByType application/x-javascript "access plus 1 day"
+</IfModule>
+
+    ExpiresActive On
+    ExpiresByType image/gif A28800
+    ExpiresByType image/png A28800
+
+    ExpiresByType image/jpg A28800
+
+    ExpiresByType image/jpeg A28800
+
+Header set Cache-Control "public"
+ExpiresActive On
+ExpiresDefault A18000
+ExpiresByType image/gif A2592000
+ExpiresByType image/jpg A2592000
+ExpiresByType image/jpeg A2592000
+ExpiresByType image/png A2592000
+ExpiresByType image/ico A2592000
+Expiresbytype text/js A21600
+Expiresbytype text/js "access plus 1 year"
+ExpiresByType text/php "access plus 1 year"
+ExpiresByType text/html "access plus 1 year"
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType image/gif "access plus 1 year"
+Header set Cache-Control "public"
+ExpiresByType image/jpg "access plus 1 year"
+Header set Cache-Control "public"
+ExpiresByType image/jpeg "access plus 1 year"
+Header set Cache-Control "public"
+ExpiresByType image/png "access plus 1 year"
+Header set Cache-Control "public"
+ExpiresByType image/x-icon "access plus 1 month"
+
+<FilesMatch "\.(ico|pdf|flv)$">
+Header set Cache-Control "max-age=29030400, public"
+</FilesMatch>
+
+<FilesMatch "\\.(js|css|html|htm|php|xml)$">
+SetOutputFilter DEFLATE
+</FilesMatch>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(bmp|css|flv|gif|ico|jpg|jpeg|js|pdf|png|svg|swf|tif|tiff)$">
+        Header set Last-Modified "Mon, 31 Aug 2010 00:00:00 GMT"
+    </FilesMatch>
+</IfModule>
+# Final SeoInc.ro Optimizare
