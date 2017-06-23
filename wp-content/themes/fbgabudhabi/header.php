@@ -27,7 +27,7 @@
 			$object_id = get_queried_object_id();
 			$c_page_id = get_the_ID();
 			// $c_page_id = Avada()->get_page_id();
-			
+
 			/*
 			$pages_with_css = array('13454', '13750', '13503', '13764', '14918', '13726', '14559', '13760', '13747', '13743', '13745', '13741', '17360' , '16130', '16127', '14692', '16127', '17352');
 
@@ -155,9 +155,9 @@ EOF;
 									<div class="top-header-language-switcher">
 										<?php echo $languages_html; ?>
 	                                    <?php if(ICL_LANGUAGE_CODE=='fr') { ?>
-	                                        <a href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true" style="color:#FFF;padding-left:10px;font-size:20px;"></i></a><?
+	                                        <a href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true" style="color:#FFF;padding-left:10px;font-size:20px;"></i></a><?php
 	                                } else {
-	                                       ?><a href="/en/cart"><i class="fa fa-shopping-cart" aria-hidden="true" style="color:#FFF;padding-left:10px;font-size:20px;"></i></a><?
+	                                       ?><a href="/en/cart"><i class="fa fa-shopping-cart" aria-hidden="true" style="color:#FFF;padding-left:10px;font-size:20px;"></i></a><?php
 
 	                                }
 									?></div>
