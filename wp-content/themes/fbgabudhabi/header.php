@@ -33,8 +33,6 @@
 
 			if ( in_array($c_page_id, $pages_with_css) )
 			{
-				echo "<link rel='stylesheet' href='".content_url()."/themes/Avada/assets/css/events.css'>";
-				echo "<link rel='stylesheet' href='".content_url()."/themes/Avada/assets/css/lists.css'>";
 				echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.3.2/sweetalert2.css">';
 				echo '<script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/6.3.2/sweetalert2.js"></script>';
 
