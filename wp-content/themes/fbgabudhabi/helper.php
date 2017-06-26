@@ -698,7 +698,7 @@ function companies_page_letters_fs($atts)
        }
     ?>
     	<li>
-            <a href="<?=$searchUrl?>" <?if($srChar == $value){?>class="active_link_on_alphabetic_sort"<?}?>><?=strtoupper($value)?></a>
+            <a href="<?=$searchUrl?>" <?php if($srChar == $value){?>class="active_link_on_alphabetic_sort"<?php}?>><?=strtoupper($value)?></a>
        </li><?php       
    }
    ?>
