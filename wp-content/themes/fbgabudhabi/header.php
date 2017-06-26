@@ -28,7 +28,7 @@
 			$c_page_id = get_the_ID();
 			// $c_page_id = Avada()->get_page_id();
 
-			/*
+			
 			$pages_with_css = array('13454', '13750', '13503', '13764', '14918', '13726', '14559', '13760', '13747', '13743', '13745', '13741', '17360' , '16130', '16127', '14692', '16127', '17352');
 
 			if ( in_array($c_page_id, $pages_with_css) )
@@ -49,7 +49,6 @@ EOF;
 				<![endif]-->
 				";
 			} ?>
-			*/ ?>
 
 			<script type="text/javascript">
 				var doc = document.documentElement;
