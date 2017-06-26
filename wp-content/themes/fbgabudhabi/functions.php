@@ -463,3 +463,217 @@ function suggested_profiles_slider($atts = [])
 }
 
 add_shortcode( 'suggested_profiles_slider', 'suggested_profiles_slider' );
+
+/**
+ * Customize 'Fusion Events' Shortcode to 
+ * add:
+ *   1. Join Button
+ *   2. Date of Event
+ * Update:
+ *   1. Simply the Date below Title
+ *
+ * Edited on: 22/12/16
+ */
+
+function fbg_fusion_events_shortcode_v2( $args, $content = '' )
+{
+	$html     = '';
+	$defaults = shortcode_atts(
+		array(
+			'hide_on_mobile' => fusion_builder_default_visibility( 'string' ),
+			'class'          => '',
+			'id'             => '',
+			'cat_slug'       => '',
+			'columns'        => '4',
+			'number_posts'   => '4',
+			'picture_size'   => 'cover',
+			), $args
+		);
+
+	extract( $defaults );
+
+	if ( class_exists( 'Tribe__Events__Main' ) )
+	{
+		$args = array (
+			'post_type' => 'tribe_events',
+			'posts_per_page' => $number_posts,
+		);
+
+		if ( $cat_slug )
+		{
+			$terms = explode( ',', $cat_slug );
+			$args['tax_query'] = array(
+				array(
+					'taxonomy'  => 'tribe_events_cat',
+					'field'     => 'slug',
+					'terms'     => array_map( 'trim', $terms ),
+					),
+				);
+		}
+
+		switch ( $columns )
+		{
+			case '1':
+				$column_class = 'full-one';
+				break;
+			case '2':
+				$column_class = 'one-half';
+				break;
+			case '3':
+				$column_class = 'one-third';
+				break;
+			case '4':
+				$column_class = 'one-fourth';
+				break;
+			case '5':
+				$column_class = 'one-fifth';
+				break;
+			case '6':
+				$column_class = 'one-sixth';
+				break;
+		}
+
+		// $events = fusion_builder_cached_query( $args );
+		$events = new WP_Query( $args );
+
+		if ( ! $events->have_posts() ) {
+			return fusion_builder_placeholder( 'tribe_events', 'events' );
+		}
+
+		$class = fusion_builder_visibility_atts( $hide_on_mobile, $class );
+
+		if ( $events->have_posts() )
+		{
+			if ( $id )
+			{
+				$id = ' id="' . $id . '"';
+			}
+
+			$html .= '<div class="fusion-events-shortcode ' . $class . '"' . $id . ' m_slider_on_page set_different_color_for_right_triangle>';
+			$i       = 1;
+			$last    = false;
+			$columns = (int) $columns;
+
+			$hasCalendarTile = $events->post_count < 4 ? true : false;
+
+			while ( $events->have_posts() )
+			{
+				$events->the_post();
+
+				if ( $i == $columns ) {
+					$last = true;
+				}
+
+				if ( $i > $columns ) {
+					$i = 1;
+					$last = false;
+				}
+
+				if ( 1 == $columns ) {
+					$last = true;
+				}
+
+				$html .= '<div class="fusion-' . $column_class . ' fusion-spacing-yes fusion-layout-column ' . ( ( $last ) ? 'fusion-column-last' : '' ) . ' ">';
+				$html .= '<div class="fusion-column-wrapper">';
+				$thumb_id = get_post_thumbnail_id();
+				$thumb_link = wp_get_attachment_image_src( $thumb_id, 'full', true );
+				$thumb_url = '';
+
+				if ( has_post_thumbnail( get_the_ID() ) ) {
+					$thumb_url = $thumb_link[0];
+				} elseif ( class_exists( 'Tribe__Events__Pro__Main' ) ) {
+					$thumb_url = esc_url( trailingslashit( Tribe__Events__Pro__Main::instance()->pluginUrl ) . 'src/resources/images/tribe-related-events-placeholder.png' );
+				}
+
+				$img_class = ( has_post_thumbnail( get_the_ID() ) ) ? '' : 'fusion-events-placeholder';
+
+				if ( $thumb_url ) {
+					$thumb_img = '<img class="' . $img_class . '" src="' . $thumb_url . '" alt="' . esc_attr( get_the_title( get_the_ID() ) ) . '" />';
+					if ( has_post_thumbnail( get_the_ID() ) && 'auto' == $picture_size ) {
+						$thumb_img = get_the_post_thumbnail( get_the_ID(), 'full' );
+					}
+					$thumb_bg = '<span class="tribe-events-event-image" style="background-image: url(' . $thumb_url . '); background-size: contain; background-position: top;"></span>';
+				}
+				$html .= '<div class="fusion-events-thumbnail hover-type-' . ( ( class_exists( 'Avada' ) ) ? Avada()->settings->get( 'ec_hover_type' ) : '' ) . '">';
+				$html .= '<a href="' . get_the_permalink() . '" class="url" rel="bookmark">';
+
+				if ( $thumb_url ) {
+					$html .= ( 'auto' == $picture_size ) ? $thumb_img : $thumb_bg;
+				} else {
+					ob_start();
+			        do_action( 'avada_placeholder_image', 'fixed' );
+			        $placeholder = ob_get_clean();
+			        $html .= str_replace( 'fusion-placeholder-image', ' fusion-placeholder-image tribe-events-event-image', $placeholder );
+			    }    
+
+		    	$event_date = tribe_get_start_date( null, false, 'd M' );
+		      	$event_date_full = tribe_get_start_date( null, false, 'j M Y' );
+
+				$mystring = $_SERVER['PHP_SELF'];
+    			$url = $_SERVER['REQUEST_URI'];
+
+      			if ( ICL_LANGUAGE_CODE=='fr' ) {
+        			$eventButtonLink = "Voir";
+      			} else {
+		          $eventButtonLink = "Join the Event";
+      			}
+
+      			$html .= '</a>';
+      			$html .= '</div>';
+				$html .= '<div class="fusion-events-meta">';
+				$html .= '<h2><a href="' . get_the_permalink() . '" class="url" rel="bookmark">' . get_the_title() . '</a></h2>';
+				$html .= '<h4>' . $event_date_full . '</h4>';
+				$html .= '</div>';
+				$html .= '<div class="fusion-events-overlay">';
+				$html .= '<div class="dt"><div class="dtc">
+							<a href="' . get_the_permalink() . '" class="button button-round">' . __( $eventButtonLink, 'fbg' ) . '</a></div>
+						</div>';
+				$html .= '<div class="event-date"><span>' . $event_date . '</span></div>';
+				$html .= '</div>';
+				$html .= '</div>';
+				$html .= '</div>';
+
+				if ( $last ) {
+      				// $html .= '<div class="fusion-clearfix"></div>';
+      			}
+      			$i++;
+  			} // end while  			
+
+  			wp_reset_query();
+ 			// $html .= '<div class="fusion-clearfix"></div>';
+
+			if ( $hasCalendarTile )
+			{
+				$viewCalendarlink = ICL_LANGUAGE_CODE == 'en' ? '/en/calendar-events' : '/calendar-events';
+				$viewCalendarText = ICL_LANGUAGE_CODE == 'en' ? 'View Calendar' : 'Voir le calendrier';
+
+				$html .= '<div class="fusion-one-fourth fusion-spacing-yes fusion-layout-column fusion-column-last visit-calendar-tile">';
+					$html .= '<div class="fusion-column-wrapper">';
+						$html .= '<div class="fusion-events-thumbnail hover-type-none">';
+							$html .= '<a href="'.$viewCalendarlink.'" class="url" rel="bookmark">';
+								$html .= '<span class="tribe-events-event-image"></span>';
+							$html .= '</a>';
+						$html .= '</div>';
+						$html .= '<div class="fusion-events-overlay" style="z-index: 10 !important; opacity: 1 !important;">';
+							$html .= '<div class="dt">';
+								$html .= '<div class="dtc">';
+									$html .= '<a href="'.$viewCalendarlink.'" class="button button-round">'.$viewCalendarText.'</a>';
+								$html .= '</div>';
+							$html .= '</div>';
+						$html .= '</div>';
+					$html .= '</div>';
+				$html .= '</div>';
+			}  	
+
+  		$html .= '</div>';	
+	}
+	return $html;
+	}
+}
+
+add_action('init', 'fbg_fusion_events_v2');
+
+function fbg_fusion_events_v2() {
+	remove_shortcode( 'fusion_events' );
+	add_shortcode( 'fusion_events', 'fbg_fusion_events_shortcode_v2' );
+}
