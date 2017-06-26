@@ -10,11 +10,11 @@ if ( $the_query->have_posts() )
 			$src = content_url() . "/uploads/2017/01/new-FBG-logo_transparent.png";
 		}
 
-		$$id_company = get_the_ID();
+		$id_company = get_the_ID();
 		$user_detail = "";
 		$user_count = 0;
 
-		$result5 = $wpdb->get_results("SELECT * FROM wp_xpksy4skky_usermeta WHERE meta_key='company' AND meta_value={$$id_company}");
+		$result5 = $wpdb->get_results("SELECT * FROM wp_xpksy4skky_usermeta WHERE meta_key='company' AND meta_value={$id_company}");
 
 		foreach ($result5 as $row5)
 		{
@@ -146,10 +146,10 @@ if ( $the_query->have_posts() )
 
 			if (is_user_logged_in() )
 			{
-				$phone = get_field('phone', $$id_company);
-				$fax = get_field('fax', $$id_company);
-				$website = get_field('website', $$id_company);
-				$city = get_field('city', $$id_company);
+				$phone = get_field('phone', $id_company);
+				$fax = get_field('fax', $id_company);
+				$website = get_field('website', $id_company);
+				$city = get_field('city', $id_company);
 
 				$phone_icon = '<i class="fa fa-phone" aria-hidden="true"></i>';
 				$fax_icon = '<i class="fa fa-print" aria-hidden="true"></i>';

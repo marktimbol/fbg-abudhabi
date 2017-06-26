@@ -498,7 +498,7 @@ function companies_page_companies_show_fs($atts)
 	global $wpdb;
 	$category_id = 0;
 
-	if (isset($_GET['cat'])&&!empty($_GET['cat']) )
+	if (isset($_GET['cat']) && !empty($_GET['cat']) )
 	{
 		$sector_company = esc_attr( sanitize_text_field( $_GET['cat'] ) );
 		$result5 = $wpdb->get_results("SELECT ID, post_title FROM wp_xpksy4skky_posts WHERE `post_name` LIKE '{$sector_company}' AND `post_type` = 'sector' ");	
@@ -520,11 +520,11 @@ function companies_page_companies_show_fs($atts)
 	);
 
 
-	if (isset($_GET['start'])&&!empty($_GET['start']) ) {
+	if (isset($_GET['start']) && !empty($_GET['start']) ) {
 		$args['sector_title'] = esc_attr( sanitize_text_field( $_GET['start'] ) );
 	}
 
-	if (isset($_GET['cat'])&&!empty($_GET['cat']) )
+	if (isset($_GET['cat']) && !empty($_GET['cat']) )
 	{
 		$args['meta_query'] = array(
 			'relation' => 'AND',
