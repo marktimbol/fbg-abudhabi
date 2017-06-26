@@ -161,269 +161,6 @@ function FBG_add_sector()
 	register_post_type( 'sector' , $args );
 }
 
-function get_sector_id($sector)
-{
-	global $wpdb;
-
-	$post_sector = $wpdb->get_results("
-		SELECT
-			*
-		FROM
-			wp_xpksy4skky_posts
-		WHERE
-			post_title LIKE '%{$sector}%'
-			AND post_type LIKE 'sector'
-			AND post_status LIKE 'publish'
-		LIMIT 1
-		");
-
-	foreach ($post_sector as $row_sector) {
-		return $row_sector->ID;
-		break;
-	}
-}
-
-function suggestion_profile($type="list")
-{
-	global $wpdb;
-
-	$user_id = $user_item = $date_reg = $date = $user_shortcode_block = "";
-
-	$result = $wpdb->get_results("
-		SELECT 
-			wp_users.ID as ID,
-			wp_users.user_registered as user_registered
-		FROM
-			wp_xpksy4skky_users wp_users
-		ORDER BY RAND()"
-	);
-
-	$count_wm=0;
-	
-	foreach ($result as $row)
-	{
-        $adminuser = false;
-        $resultadmin = $wpdb->get_results(" SELECT `meta_value` FROM wp_xpksy4skky_usermeta WHERE user_id='{$row->ID}' AND meta_key='wp_xpksy4skky_capabilities' AND meta_value !='a:1:{s:13:\"administrator\";b:1;}' ");	
-
-		foreach ($resultadmin as $rowadmin) {	
-			$adminuser = true;
-		}
-
-		if( ! $adminuser ) {
-			continue;
-		} 
-		
-        $approved = false;
-		$result9 = $wpdb->get_results(" SELECT `meta_value` FROM wp_xpksy4skky_usermeta WHERE user_id='{$row->ID}' AND meta_key='pw_user_status' AND meta_value='approved' ");
-
-		foreach ($result9 as $row9) {
-			$approved = true;
-		}
-
-		$user_f_un="";
-		if( ! $approved ) {
-			continue;
-		}
-
-		$paid_unpaid_wm = false;
-		$result22 = $wpdb->get_results(" SELECT `meta_value` FROM wp_xpksy4skky_usermeta WHERE user_id='{$row->ID}' AND meta_key='paid_unpaid' AND meta_value='paid' ");
-
-		foreach ($result22 as $row22) {
-			$paid_unpaid_wm=true;
-		}
-
-		$user_id_wm = $row->ID;
-		if ( ! $paid_unpaid_wm ) {
-			continue;
-		}
-
-		$resultOverview = $wpdb->get_results(" SELECT `user_id` FROM wp_xpksy4skky_usermeta WHERE user_id='{$row->ID}' AND meta_key='members_overview' AND meta_value='a:1:{i:0;s:7:\"Display\";}' ");
-
-        if( empty($resultOverview) ) {
-            continue;
-        }
-
-		$current_user_id = get_current_user_id();
-		if ($current_user_id <> "")
-		{
-			$result70 = $wpdb->get_results(" SELECT `meta_value` FROM wp_xpksy4skky_usermeta WHERE user_id='{$current_user_id}' AND meta_key='paid_unpaid' AND meta_value='paid'");
-
-			foreach ($result70 as $row70) {
-				$user_id = $user_id_wm;
-			}
-		} else {
-			$result377 = $wpdb->get_results(" SELECT `user_id` FROM wp_xpksy4skky_usermeta WHERE user_id='{$row->ID}' AND meta_key='members_overview' AND meta_value='a:1:{i:0;s:7:\"Display\";}' ");
-
-			if (empty($result377) ) {
-				continue;
-			}
-
-			$user_id = $result377[0]->user_id;
-		}
-
-		$date_reg = $row->user_registered;
-		$date = (current_time('timestamp')-strtotime($date_reg))/86400;
-		$first_name="";
-		$result1 = $wpdb->get_results("SELECT `meta_value` FROM wp_xpksy4skky_usermeta WHERE user_id='{$user_id}' AND meta_key='first_name'");
-
-		foreach ( $result1 as $row1 ) {
-			$first_name = $row1->meta_value;
-		}
-
-		$last_name="";
-		$result3 = $wpdb->get_results("SELECT `meta_value` FROM wp_xpksy4skky_usermeta WHERE user_id='{$user_id}' AND meta_key='last_name'");	
-		
-		foreach ($result3 as $row3) {
-			$last_name = $row3->meta_value;
-		}
-
-		$badge_name="";
-		$result4 = $wpdb->get_results("SELECT `meta_value` FROM wp_xpksy4skky_usermeta WHERE user_id='{$user_id}' AND meta_key='badge_name'");	
-		
-		foreach ($result4 as $row4) {
-			$badge_name = $row4->meta_value;
-		}
-
-		$result8 = $wpdb->get_results("SELECT `meta_value` FROM wp_xpksy4skky_usermeta WHERE user_id='{$user_id}' AND meta_key='badge_color'");	
-		foreach ($result8 as $row8) {
-			$badge_color = $row8->meta_value;
-		}
-
-		$result9 = $wpdb->get_results("SELECT `meta_value` FROM wp_xpksy4skky_usermeta WHERE user_id='{$user_id}' AND meta_key='badge_background'");
-		foreach ($result9 as $row9) {
-			$badge_background = $row9->meta_value;
-		}
-
-		$user_picture="";
-		$result5 = $wpdb->get_results("SELECT `meta_value` FROM wp_xpksy4skky_usermeta WHERE user_id='{$user_id}' AND meta_key='user_picture'");	
-		
-		foreach ($result5 as $row5) {
-			$user_picture = $row5->meta_value;
-		}
-
-		$user_image = content_url()."/uploads/2017/01/new-FBG-logo_transparent.png";
-		$result2 = $wpdb->get_results("SELECT `meta_value` FROM wp_xpksy4skky_postmeta WHERE post_id='{$user_picture}' AND meta_key='_wp_attached_file'");
-
-		foreach ($result2 as $row2) {
-			$user_image = content_url()."/uploads/".$row2->meta_value;
-		}
-
-
-		$position = "";
-		$resPosition = $wpdb->get_results("SELECT `meta_value` FROM wp_xpksy4skky_usermeta WHERE user_id='{$user_id}' AND meta_key='position'");	
-		
-		foreach ( $resPosition as $rowPos ) {
-			$position = $rowPos->meta_value;
-		}
-
-        $count_wm++;
-		if ($count_wm == 10) {
-			break;
-		}
-
-		$full_name = $first_name." ".$last_name;
-
-       if( ICL_LANGUAGE_CODE == 'fr' ) {
-           $strNew = "Nouveau";
-       } else {
-            $strNew = "New";
-       }
-
-		$corner_badge="";	
-		if ( $date < 31 )
-		{
-			$corner_badge=<<<EOF
-			<div class="m_features_name">
-				<p class="m_right_date m_right_corner_feature bg_white_f" href="#"><span style="color:white!important; font-weight: bold!important;">{$strNew}</span></p>
-			</div>
-			<style>
-				.bg_white_f:after {
-					border-right: 118px solid #0290dc;
-				}				
-			</style>
-EOF;
-		}
-
-		if ( $badge_name <> '' )
-		{
-            if ( ICL_LANGUAGE_CODE == 'fr' ) {
-                if ( $badge_name == 'Featured' ) {
-                    $badge_name = "Mis en Avant";
-                }
-            }
-
-			$corner_badge=<<<EOF
-			<div class="m_features_name">
-				<p class="m_right_date m_right_corner_feature bg_white_f" href="#" style=""><span style="color:{$badge_color}!important; font-weight: bold!important;">{$badge_name}</span></p>
-			</div>
-			<style>
-			.bg_white_f:after {
-				border-right: 118px solid {$badge_background};
-			}				
-			</style>
-EOF;
-		} 
-
-        if ( ICL_LANGUAGE_CODE == 'fr' ) {
-             $link_used = get_site_url() . "/annuaire-en-ligne/users-details/?uid=" . $user_id;
-        } else {
-		    $link_used = get_site_url() . "/en/online-directory/users-details/?uid=" . $user_id;
-        }
-
-		$final_link = $company_name_c = $company_name_wm = "";
-		$company_id_c = 0;
-
-		$result15 = $wpdb->get_results("SELECT `meta_value` FROM wp_xpksy4skky_usermeta WHERE user_id='{$user_id}' AND meta_key='company'");	
-		foreach ($result15 as $row15) {
-			$company_id_c = $row15->meta_value;
-		}
-
-		$result16 = $wpdb->get_results("SELECT `post_title` FROM wp_xpksy4skky_posts WHERE ID='{$company_id_c}'");	
-		foreach ($result16 as $row16) {
-			$company_name_c = $row16->post_title;
-		}
-
-		$link_company_wm = get_permalink($company_id_c);
-
-		if ($company_name_c == "Individual") {
-			$company_name_wm = $company_name_c="";
-		} else if (strlen($link_company_wm) > 0 && $company_id_c > 0) {
-			$company_name_wm = $company_name_c;
-			$final_link = "<a href='{$link_company_wm}'><p style='font-size: 14px; height: 32px; color: #0291dd;'>{$company_name_wm}</p></a>";
-		}
-
-		$user_item = <<<EOF
-		<div class="item">
-			<div class="set_bg_for_item">
-				<img src="{$user_image}" alt="client">
-			</div>
-			{$corner_badge}
-			<div class="m_desc_of_position">
-				<div class="m_name_of_person">
-					<a href="{$link_used}"><p>{$full_name}</p></a>
-				</div>
-				<div class="occupation_position_ahead m_b_20">
-					<p style="height: 32px;">{$position}</p>
-				</div>
-				<div class="occupation_position_ahead m_b_20">
-					{$final_link}
-				</div>
-			</div>
-		</div>
-EOF;
-	
-		if ( $type == "shortcode" ) {
-			$user_shortcode_block .= $user_item;
-		} else {
-			echo $user_item;
-		}
-	}
-
-	if ( $type == "shortcode" ) {
-		return $user_shortcode_block;
-	}
-}
-
 function suggested_profiles_title($atts = [])
 {
 	$suggested_prof_title="";
@@ -714,4 +451,28 @@ function user_detail_details($atts = []) {
 add_shortcode( 'user_detail_company', 'user_detail_company' );
 function user_detail_company($atts = []) {
 	user_detail_company_fs($atts);
+}
+
+// [companies_form_search]
+add_shortcode( 'companies_form_search', 'companies_form_search' );
+function companies_form_search($atts = []) {
+	companies_form_search_fs($atts);
+}
+
+// [companies_page_companies_show]
+add_shortcode( 'companies_page_companies_show', 'companies_page_companies_show' );
+function companies_page_companies_show($atts = []) {
+	companies_page_companies_show_fs($atts);
+}
+
+// [companies_page_title]
+add_shortcode( 'companies_page_title', 'companies_page_title' );
+function companies_page_title($atts = []) {
+	companies_page_title_fs($atts);
+}
+
+// [companies_page_letters]
+add_shortcode( 'companies_page_letters', 'companies_page_letters' );
+function companies_page_letters($atts = []) {
+	companies_page_letters_fs($atts);
 }
