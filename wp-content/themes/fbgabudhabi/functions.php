@@ -68,7 +68,7 @@ function fbg_team_shortcode( $atts )
 	$q = new WP_Query( $q_args );
 	if ( $q->have_posts() )
 	{
-		$output .= '<div class="fusion-image-carousel overlay-cards fusion-image-carousel-auto">'
+		$output .= '<div class="fusion-image-carousel overlay-cards fusion-image-carousel-auto our-team-carousel">'
 		. '<div class="fusion-carousel" data-autoplay="no" data-columns="5" data-itemmargin="0" data-itemwidth="214" data-touchscroll="no" data-imagesize="auto" data-scrollitems="1">'
 		. '<div class="fusion-carousel-positioner">'
 		. '<ul class="fusion-carousel-holder">';
@@ -451,7 +451,7 @@ add_shortcode( 'suggested_profiles_title', 'suggested_profiles_title' );
 function suggested_profiles_slider($atts = [])
 {
 	global $wpdb;
-	$suggested_prof = "<div class='m_slider_on_page set_different_color_for_right_triangle'>
+	$suggested_prof = "<div class='m_slider_on_page set_different_color_for_right_triangle members-overview-slider'>
 		<div class='owl_carousel_slider'>" . suggestion_profile('shortcode') . "</div>
 	</div>";
 
