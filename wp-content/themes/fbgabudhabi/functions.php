@@ -1,5 +1,7 @@
 <?php
 
+require('helper.php');
+
 function theme_enqueue_styles() {
     wp_enqueue_style( 'fbgabudhabi-style', get_stylesheet_directory_uri() . '/style.css', array( 'avada-stylesheet' ) );
     wp_enqueue_style( 'fbgabudhabi-app-style', get_stylesheet_directory_uri() . '/dist/css/app.css', array( 'avada-stylesheet' ) );
@@ -676,4 +678,40 @@ add_action('init', 'fbg_fusion_events_v2');
 function fbg_fusion_events_v2() {
 	remove_shortcode( 'fusion_events' );
 	add_shortcode( 'fusion_events', 'fbg_fusion_events_shortcode_v2' );
+}
+
+// [user_datail_search]
+add_shortcode( 'user_datail_search', 'user_datail_search' );
+function user_datail_search ($atts = []) {
+	user_datail_search_fs($atts);
+}
+
+// [user_detail_title]
+add_shortcode( 'user_detail_title', 'user_detail_title' );
+function user_detail_title($atts = []) {
+	user_detail_title_fs($atts);
+}
+
+// [user_detail_image]
+add_shortcode( 'user_detail_image', 'user_detail_image' );
+function user_detail_image($atts = []) {
+	user_detail_image_fs($atts);
+}
+
+// [user_detail_name]
+add_shortcode( 'user_detail_name', 'user_detail_name' );
+function user_detail_name($atts = []) {
+	user_detail_name_fs($atts);
+}
+
+// [user_detail_details]
+add_shortcode( 'user_detail_details', 'user_detail_details' );
+function user_detail_details($atts = []) {
+	user_detail_details_fs($atts);
+}
+
+// [user_detail_company]
+add_shortcode( 'user_detail_company', 'user_detail_company' );
+function user_detail_company($atts = []) {
+	user_detail_company_fs($atts);
 }
